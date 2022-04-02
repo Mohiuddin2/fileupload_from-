@@ -1,0 +1,105 @@
+<% layout('layouts/boilerplate') %>
+
+
+
+    <div style="background-color: rgb(13, 171, 182) ; margin: auto;
+border: 3px solid green;
+padding: 0px;" class="col-lg-8 col-xs-12 col-centered rounded mb-2">
+
+        <div class="p-2 text-dark">
+            <h4 class="mt-2">Application of
+                <%= applicant.first_name %>
+            </h4>
+
+            <div class="">
+                <div class="form-row">
+                    <div class="form-group bg-light rounded p-2">
+                        <h6><b> Name :</b></h6>
+                        <%= applicant.first_name %>
+                    </div>
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Last Name:</b></h6>
+                        <%= applicant.last_name %>
+                    </div>
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Gender :</b></h6>
+                        <%= applicant.gender %>
+                            <!-- <% console.log("From applicant view", applicant.gender) %> -->
+                    </div>
+
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Mobile Phone :</b></h6>
+
+                        <%= applicant.mobile_phone %>
+                    </div>
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Email :</b></h6>
+                        <%= applicant.email %>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="pl-2 mt-2">Profile Details</h4>
+            <div class="submit-section">
+                <div class="form-row">
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Mother Name :</b></h6>
+                        <%= applicant.mother_name %>
+                    </div>
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Father Name :</b></h6>
+                        <%= applicant.father_name %>
+                    </div>
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Birth Date :</b></h6>
+                        <%= applicant.birth_date %>
+                    </div>
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Country of birth :</b></h6>
+                        <%= applicant.country_of_birth %>
+                    </div>
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Nationality :</b></h6>
+                        <%= applicant.nationality %>
+
+                    </div>
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>City of residence :</b></h6>
+                        <%= applicant.city_of_residence %>
+                    </div>
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Whatsapp Number :</b></h6>
+                        <%= applicant.whatsapp_number %>
+                    </div>
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Address :</b></h6>
+                        <%= applicant.address %>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="pl-2 mt-2">Passport Information :</b></h4>
+            <div class="submit-section">
+                <div class="form-row">
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Passport date of issue :</b></h6>
+                        <%= applicant.passport_date_of_issue %>
+                    </div>
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Passport Number :</b></h6>
+                        <%= applicant.passport_number %>
+                    </div>
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Passport date of expire :</b></h6>
+                        <%= applicant.passport_date_of_expire %>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    <!-- <script> -->
