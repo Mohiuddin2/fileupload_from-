@@ -94,6 +94,44 @@ const ApplicationSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  profile_picture:[
+    {
+      imageUrl: {
+        type: String,
+        required: true
+      }
+    }
+  ],
+  passport:[
+    {
+      imageUrl: {
+        type: String,
+        required: true
+      }
+    }
+  ],
+
+  diploma:[
+    {
+      imageUrl: {
+        type: String,
+        required: true
+      }
+    }
+  ],
+
+  transcript:[
+    {
+      imageUrl: {
+        type: String,
+        required: true
+      }
+    }
+  ],
+  applicant: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Application",
+  },
 });
 
 module.exports = mongoose.model("Application", ApplicationSchema);

@@ -96,6 +96,43 @@ padding: 0px;" class="col-lg-8 col-xs-12 col-centered rounded mb-2">
                 </div>
             </div>
 
+
+            <div class="submit-section">
+
+
+                <div class="form-row">
+
+                    <div class="form-group bg-light mt-1 rounded p-2">
+                        <h6><b>Passport date of issue :</b></h6>
+                        <%= applicant.passport_date_of_issue %>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <h6><b>Profile Picture</b></h6>
+                        <img src=<%=applicant.profile_picture[0].imageUrl %> alt="...">
+                        <% console.log("Value of Image", applicant.profile_picture[0].imageUrl); %>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <h6><b>Passport (Required): </b></h6>
+                        <img src=<%=applicant.passport[0].imageUrl %> alt="...">
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <h6><b>Diploma (Required): </b></h6>
+                        <img src=<%=applicant.diploma[0].imageUrl %> alt="...">
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <h6><b>Transcript (Required): </b></h6>
+                        <img src=<%=applicant.transcript[0].imageUrl %> alt="...">
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
         </div>
 
     </div>

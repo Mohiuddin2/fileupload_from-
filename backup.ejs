@@ -68,14 +68,13 @@
                                     </div>
                                     <div class="dashboard_container_body p-4">
 
+                                        
+                                        <form method="POST" action="/application" id="profileFormID">
 
-                                        <!-- <form method="POST" action="/application" id="profileFormID" enctype="multipart/form-data> -->
-                                        <form method="POST" action="/application/" id="documentsFormID"
-                                            enctype="multipart/form-data">
                                             <h4 class="pl-2 mt-2">Profile</h4>
                                             <div class="submit-section">
                                                 <div class="form-row">
-                                                    <!-- <input type="hidden" name="id" value="5456464564564"> -->
+                                         <!-- <input type="hidden" name="id" value="5456464564564"> -->
                                                     <div class="form-group col-md-6">
                                                         <label>First Name</label>
                                                         <input type="text" class="form-control" name="first_name"
@@ -982,86 +981,163 @@
                                                         <input type="date" name="passport_date_of_expire"
                                                             class="form-control" value="" min="1960-01-01" required>
                                                     </div>
-
-                                                    <div class="dashboard_container">
-                                                        <div class="dashboard_container_header">
-                                                            <div class="dashboard_fl_1">
-                                                                <h4>Documents</h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="dashboard_container_body p-4">
-
-                                                            <!-- <div class="form-submit">
-                                                                <div class="submit-section"> -->
-                                                            <!-- <form method="POST" action="/application/files" id="documentsFormID" -->
-                                                            <!-- enctype="multipart/form-data"> -->
-                                                            <div class="submit-section">
-
-
-
-                                                                <div class="form-row">
-                                                                    <h5>Please Insert img file.Thanks</h5>
-                                                                    <div class="form-group col-md-6">
-                                                                        <label>Profile Picture (Required):
-                                                                            &nbsp;</label>
-
-                                                                        <input name="profile_picture"
-                                                                            id="pictureInputId" type="file"
-                                                                            class="form-control">
-                                                                    </div>
-                                                                    <div class="form-group col-md-6">
-                                                                        <label>Passport (Required): &nbsp;</label>
-
-                                                                        <input name="passport" id="passportInputId"
-                                                                            type="file" class="form-control">
-                                                                    </div>
-                                                                    <div class="form-group col-md-6">
-                                                                        <label>Diploma (Required): &nbsp;</label>
-
-                                                                        <input name="diploma" id="diplomaInputId"
-                                                                            type="file" class="form-control">
-                                                                    </div>
-                                                                    <div class="form-group col-md-6">
-                                                                        <label>Transcript (Required): &nbsp;</label>
-
-                                                                        <input name="transcript" id="transcriptInputId"
-                                                                            type="file" class="form-control">
-                                                                    </div>
-                                                                    <div class="form-group col-lg-12 col-md-12">
-                                                                        <button class="btn btn-theme" type="submit"
-                                                                            id="">Save
-                                                                            Application</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                    <div class="form-group col-lg-12 col-md-12">
+                                                        <button class="btn btn-theme" type="submit"
+                                                            id="saveProfileButtonID">Save Changes1</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </form>
+
                                     </div>
+
+                                </div>
+                                <div class="dashboard_container">
+                                    <div class="dashboard_container_header">
+                                        <div class="dashboard_fl_1">
+                                            <h4>Documents</h4>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard_container_body p-4">
+
+                                        <div class="form-submit">
+                                            <div class="submit-section">
+
+                                                
+                                                <form method="POST" action="/application/files" id="documentsFormID"
+                                                    enctype="multipart/form-data">
+                                                    <div class="form-row">
+                                                        <!-- <input type="hidden" name="csrf"
+                                                            value="ZVZJp2hB7QxJVTVSYbQvcC8iotVrOzQm"> -->
+                                                        <div class="form-group col-md-6">
+                                                            <label>Profile Picture (Required): &nbsp;</label>
+
+                                                            <input name="profile_picture" id="pictureInputId" type="file"
+                                                                class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label>Passport (Required): &nbsp;</label>
+
+                                                            <input name="passport" id="passportInputId" type="file"
+                                                                class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label>Diploma (Required): &nbsp;</label>
+
+                                                            <input name="diploma" id="diplomaInputId" type="file"
+                                                                class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label>Transcript (Required): &nbsp;</label>
+
+                                                            <input name="transcript" id="transcriptInputId" type="file"
+                                                                class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-lg-12 col-md-12">
+                                                            <button class="btn btn-theme" type="submit" id="">Save
+                                                                Documents1</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="dashboard_container">
+                                    <div class="dashboard_container_header">
+                                        <div class="dashboard_fl_1">
+                                            <h4>Add Other Document</h4>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard_container_body p-4">
+
+                                        <div class="form-submit">
+                                            <div class="submit-section">
+                                                <form method="POST" action="/profile/add-other-file"
+                                                    id="otherDocumentsFormID" enctype="multipart/form-data">
+                                                    <div class="form-row">
+                                                        <input type="hidden" name="csrf"
+                                                            value="ZVZJp2hB7QxJVTVSYbQvcC8iotVrOzQm">
+                                                        <div class="form-group col-md-6">
+                                                            <label>Type: &nbsp;</label>
+                                                            <select name="type" class="form-control" required>
+                                                                <option value="">Select Type</option>
+                                                                <option value="5">Passport translation</option>
+                                                                <option value="6">Certificate</option>
+                                                                <option value="7">Certificate translation Turkish or
+                                                                    English</option>
+                                                                <option value="8">Full Transcript</option>
+                                                                <option value="9">Transcript translation</option>
+                                                                <option value="10">GMAT Exam score</option>
+                                                                <option value="11">SAT Exam score</option>
+                                                                <option value="12">PTE Exam score</option>
+                                                                <option value="13">GRE Exam score</option>
+                                                                <option value="14">TOEFL Exam score</option>
+                                                                <option value="15">IELTS Exam score</option>
+                                                                <option value="16">CAE Exam score</option>
+                                                                <option value="17">GCE A Level</option>
+                                                                <option value="18">CPE Exam score</option>
+                                                                <option value="19">CTE Exam score</option>
+                                                                <option value="20">Reference</option>
+                                                                <option value="21">Statement of purpose (motivation
+                                                                    letter)</option>
+                                                                <option value="22">Arabic language certificate</option>
+                                                                <option value="23">YOS Exam</option>
+                                                                <option value="24">Payment for state University</option>
+                                                                <option value="4">Other</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label>File: &nbsp;</label>
+                                                            <input name="file" type="file" class="form-control"
+                                                                required>
+                                                        </div>
+                                                        <div class="form-group col-lg-12 col-md-12">
+                                                            <button class="btn btn-theme" type="submit"
+                                                                id="saveOtherDocumentsButtonID">Save Document</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                        </form>
+
 
                     </div>
-
+                    <div class="col-xl-1 col-lg-0 p-0"></div>
                 </div>
+
+
             </div>
-    </div>
-    </div>
-    </div>
-
-
-    </div>
-    <div class="col-xl-1 col-lg-0 p-0"></div>
-    </div>
-
-
-    </div>
-    </section>
+        </section>
 
 
 
-    <footer class="">
-    </footer>
+        <footer class="">
+        </footer>
     </div>
 
 

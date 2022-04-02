@@ -14,12 +14,19 @@ router.get("/", (req, res) => {
 });
 
 router.get("/application/:id", getApplicationById);
-router.post("/application", createApplicaton);
-router.post("/application/files", upload.fields([
-    {name: "profile_picture", maxCount: 1},
-    {name: "passport", maxCount: 1},
-    {name: "diploma", maxCount: 1},
-    {name: "transcript", maxCount: 1}
-]), uploadFile);
+
+router.post("/application",upload.fields([
+  {name: "profile_picture", maxCount: 1},
+  {name: "passport", maxCount: 1},
+  {name: "diploma", maxCount: 1},
+  {name: "transcript", maxCount: 1}
+]), createApplicaton);
+
+// router.post("/application/files", upload.fields([
+//     {name: "profile_picture", maxCount: 1},
+//     {name: "passport", maxCount: 1},
+//     {name: "diploma", maxCount: 1},
+//     {name: "transcript", maxCount: 1}
+// ]), uploadFile);
 
 module.exports = router;

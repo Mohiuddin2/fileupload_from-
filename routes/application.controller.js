@@ -8,57 +8,6 @@ const Application = require("../models/application.model");
 const Files = require("../models/app_file.model");
 
 const { cloudinary } = require("../cloudinary/cloudinary.config");
-const { create } = require("connect-mongo");
-
-// Upload files
-const uploadFile = async (req, res, next) => {
-  // console.log("req files.......:", req.files);
-  // const { profile_picture, transcript, passport, diploma } = req.files;
-
-
-// console.log("DDDDDDDDDDD", profile)
-console.log(req.files.profile_picture[0].path)
-  // const a = profile_picture[0].path
-  const application = await Files.create({
-    profile_picture: [{imageUrl: req.files.profile_picture[0].path}],
-    passport: [{imageUrl: req.files.profile_picture[0].path}],
-    diploma: [{imageUrl: req.files.profile_picture[0].path}],
-    transcript: [{imageUrl: req.files.profile_picture[0].path}],
-  });
-  
-console.log("DDDDDDbbbbb", application)
-
-
-  // let url = [];
-
-  // let filename = [];
-
-  // const files = () => {
-  //   Object.keys(req.files).map(function (key, index) {
-  //     // console.log(req.files[key][0]["path"]);
-
-  //     const a = req.files[key][0]["path"];
-  //     const b = req.files[key][0]["fieldname"];
-  //     // console.log("AAAAA", a);
-  //     // console.log("AAAAA", b);
-  //     url.push(a);
-  //     filename.push(b);
-  //     return url, filename;
-  //   });
-  // };
-  // files();
-  // console.log("Filessssss", url);
-  // console.log("Filename", filename);
-
-  // application.images = req.files.map((f) => ({
-  //   url: f.path,
-  //   filename: f.filename,
-  // }));
-  // console.log("image", application)
-  // await application.save();
-  // console.log("From db", application);
-  res.json(application);
-};
 
 // Get application by ID
 const getApplicationById = async (req, res, next) => {
@@ -76,11 +25,9 @@ const getApplicationById = async (req, res, next) => {
   res.render("application_from_student", { applicant });
 };
 
-
-
-
 // Create Application
 const createApplicaton = async (req, res, next) => {
+  console.log("req files.......:", req.files);
   const {
     first_name,
     last_name,
@@ -100,6 +47,15 @@ const createApplicaton = async (req, res, next) => {
     passport_number,
     passport_date_of_expire,
   } = req.body;
+
+  console.log(req.files.profile_picture[0].path);
+  // const a = profile_picture[0].path
+  const application = await Files.create({
+    profile_picture: [{ imageUrl: req.files.profile_picture[0].path }],
+    passport: [{ imageUrl: req.files.profile_picture[0].path }],
+    diploma: [{ imageUrl: req.files.profile_picture[0].path }],
+    transcript: [{ imageUrl: req.files.profile_picture[0].path }],
+  });
 
   const findEmail = await Application.findOne({ email });
 
@@ -124,6 +80,11 @@ const createApplicaton = async (req, res, next) => {
     passport_date_of_issue,
     passport_number,
     passport_date_of_expire,
+
+    profile_picture: [{ imageUrl: req.files.profile_picture[0].path }],
+    passport: [{ imageUrl: req.files.profile_picture[0].path }],
+    diploma: [{ imageUrl: req.files.profile_picture[0].path }],
+    transcript: [{ imageUrl: req.files.profile_picture[0].path }],
   });
 
   console.log("Applicatant:.......", applicant);
@@ -142,8 +103,8 @@ const createApplicaton = async (req, res, next) => {
   //   console.log(err);
   //   return next(new ErrorResponse("Email could not be sent", 500));
   // }
-  // return res.redirect(`application/${url}`);
-  return res.redirect();
+  return res.redirect(`/application/${url}`);
+  // res.send(applicant);
 };
 
-module.exports = { getApplicationById, createApplicaton, uploadFile };
+module.exports = { getApplicationById, createApplicaton };
