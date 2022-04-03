@@ -1,18 +1,5 @@
 const mongoose = require("mongoose");
 
-// const ImageSchema = new mongoose.Schema({
-//   url: String,
-//   filename: String,
-// });
-
-// const ApplicationSchema = new mongoose.Schema({
-//   profile_picture: [ImageSchema],
-//   passport: [ImageSchema],
-//   diploma: [ImageSchema],
-//   transcript: [ImageSchema],
-// ImageSchema.virtual("thumbnail").get(function () {
-//   return this.url.replace("/upload", "/upload/w_200");
-// });
 
 const ApplicationSchema = new mongoose.Schema({
   first_name: {
@@ -132,6 +119,10 @@ const ApplicationSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Application",
   },
+  status: {
+    type: String,
+    enum: ['Approved', 'Rejected']
+  }
 });
 
 module.exports = mongoose.model("Application", ApplicationSchema);

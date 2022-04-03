@@ -2,18 +2,23 @@ const express = require("express");
 const {
   getApplicationById,
   createApplicaton,
-  uploadFile,
+  getAllApplication,
+  approve,
+
 } = require("./application.controller");
 const router = express.Router();
 const multer = require("multer");
 const { storage } = require("../cloudinary/cloudinary.config");
 const upload = multer({ storage });
 
+
 router.get("/", (req, res) => {
   res.render("application");
 });
 
+router.get("/applications", getAllApplication);
 router.get("/application/:id", getApplicationById);
+router.post("/application/approve/:id", approve);
 
 router.post("/application",upload.fields([
   {name: "profile_picture", maxCount: 1},

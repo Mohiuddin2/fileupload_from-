@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate') %>
+
+    <div style="background-color:white ; margin: auto;
+border: 3px solid green;
+padding: 0px;" class="col-lg-8 col-xs-12 col-centered rounded mb-2">
+<h2>Dashborad</h2>
+
+        <table style="width:100%" class="border border-success">
+            <tr class="border border-success">
+                <th class="border border-success">Student ID</th>
+                <th class="border border-success">Name</th>
+                <th class="border border-success">Full Application link</th>
+            </tr>
+
+            <tr>
+                <div class="bg-light mb-1 border-primary mt-3">
+
+                    <% for(let student of applicant) {%>
+
+                        <h6 class="text-dark .bg-white">
+                            <tr class="border border-success">
+                            <td class="border border-success">
+                                <%= student.id %>
+                            </td>
+                            <td class="border border-success">
+                                <%= student.first_name %>
+                            </td>
+                            <td class="border border-success"><a class="link-primary" href="/application/<%= student.id %>"> See Full Application
+                                </a>
+                            <% } %> </td>
+                        </tr>
+                </div>
+
+
+
+
+
+        </table>
+
+
+
+
+    </div>

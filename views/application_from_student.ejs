@@ -1,7 +1,5 @@
 <% layout('layouts/boilerplate') %>
 
-
-
     <div style="background-color: rgb(13, 171, 182) ; margin: auto;
 border: 3px solid green;
 padding: 0px;" class="col-lg-8 col-xs-12 col-centered rounded mb-2">
@@ -24,7 +22,7 @@ padding: 0px;" class="col-lg-8 col-xs-12 col-centered rounded mb-2">
                     <div class="form-group bg-light mt-1 rounded p-2">
                         <h6><b>Gender :</b></h6>
                         <%= applicant.gender %>
-                            <!-- <% console.log("From applicant view", applicant.gender) %> -->
+
                     </div>
 
                     <div class="form-group bg-light mt-1 rounded p-2">
@@ -57,10 +55,20 @@ padding: 0px;" class="col-lg-8 col-xs-12 col-centered rounded mb-2">
                     <div class="form-group bg-light mt-1 rounded p-2">
                         <h6><b>Country of birth :</b></h6>
                         <%= applicant.country_of_birth %>
+
+                            <img src="/country/flag-of-<%= applicant.country_of_birth %>.png" height="50px" width="50px"
+                                title="<%= applicant.country_of_birth %>" class="rounded" />
+
+
+
                     </div>
                     <div class="form-group bg-light mt-1 rounded p-2">
                         <h6><b>Nationality :</b></h6>
                         <%= applicant.nationality %>
+
+                            <img src="/country/flag-of-<%= applicant.nationality %>.png" class="rounded mr-2"
+                                height="50px" width="50px" title="<%= applicant.nationality %>" />
+
 
                     </div>
                     <div class="form-group bg-light mt-1 rounded p-2">
@@ -107,24 +115,23 @@ padding: 0px;" class="col-lg-8 col-xs-12 col-centered rounded mb-2">
                         <%= applicant.passport_date_of_issue %>
                     </div>
 
-                    <div class="form-group col-md-6">
-                        <h6><b>Profile Picture</b></h6>
-                        <img src=<%=applicant.profile_picture[0].imageUrl %> alt="...">
-                        <% console.log("Value of Image", applicant.profile_picture[0].imageUrl); %>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <h6><b>Passport (Required): </b></h6>
-                        <img src=<%=applicant.passport[0].imageUrl %> alt="...">
+                    <div class="form-group col-md-6 mt-1 rounded p-2">
+                        <h6><b>Applicant Image</b></h6>
+                        <img class="rounded" src=<%=applicant.profile_picture[0].imageUrl %> alt="...">
 
                     </div>
-                    <div class="form-group col-md-6">
-                        <h6><b>Diploma (Required): </b></h6>
-                        <img src=<%=applicant.diploma[0].imageUrl %> alt="...">
+                    <div class="form-group col-md-6 mt-1 rounded p-2">
+                        <h6><b>Passport :</b></h6>
+                        <img class="rounded" src=<%=applicant.passport[0].imageUrl %> alt="...">
 
                     </div>
-                    <div class="form-group col-md-6">
-                        <h6><b>Transcript (Required): </b></h6>
-                        <img src=<%=applicant.transcript[0].imageUrl %> alt="...">
+                    <div class="form-group col-md-6 mt-1 rounded p-2">
+                        <h6><b>Diploma :</b></h6>
+                        <img class="rounded" src=<%=applicant.diploma[0].imageUrl %> alt="...">
+                    </div>
+                    <div class="form-group col-md-6 mt-1 rounded p-2">
+                        <h6><b>Transcript :</b></h6>
+                        <img class="rounded" src=<%=applicant.transcript[0].imageUrl %> alt="...">
 
                     </div>
 
@@ -139,4 +146,42 @@ padding: 0px;" class="col-lg-8 col-xs-12 col-centered rounded mb-2">
 
     </div>
 
-    <!-- <script> -->
+
+    <% if( approvedStatus==="notDecided" ) { %>
+        <h6 class="m-2 bg-info rounded">
+            <table cellpadding="0" cellspacing="0" class="m-2">
+                <tr>
+                    <td>
+                        <form action="/application/approve/<%= applicant.id %>" method="post"
+                            style="padding: 0; margin: 0">
+
+                            <input type="hidden" name="status1" value="Approved">
+                            <button class="btn btn-success">Approved!</button>
+                        </form>
+                    </td>
+                    <td>
+
+
+                        <form action="/application/approve/<%= applicant.id %> " method="post"
+                            style="padding: 0; margin: 0">
+                            <input type="hidden" name="status2" value="Rejected">
+                            <button class="btn btn-danger m-2">Reject</button>
+
+
+                        </form>
+                    </td>
+                </tr>
+
+            </table>
+
+        </h6>
+
+        <% } else {%>
+            <h2 class="text-success bg-light rounded">
+                <% if( approvedStatus.status1==="Approved" ){%>
+                    <%= approvedStatus.status1 %>
+                        <%} else {%>
+                            <%= approvedStatus.status2 %>
+                                <%} %>
+            </h2>
+            <% } %>

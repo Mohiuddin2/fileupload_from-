@@ -29,7 +29,13 @@ dotenv.config({ path: "./config/config.env" });
 
 const MongoStore = require("connect-mongo");
 
-console.log("Cloudinary Key:... ",  process.env.CLOUDINARY_KEY);
+
+
+
+
+
+
+
 
 
 const db = require("./config/db");
